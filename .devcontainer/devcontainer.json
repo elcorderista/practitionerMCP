@@ -1,0 +1,32 @@
+{
+  "name": "MCP Demo",
+  "image": "mcr.microsoft.com/devcontainers/python:3.12",
+  "forwardPorts": [3000],
+  "postCreateCommand": "curl -LsSf https://astral.sh/uv/install.sh | sh && echo 'export PATH=\"$HOME/.cargo/bin:$PATH\"' >> ~/.bashrc && source ~/.bashrc && uv sync",
+  "customizations": {
+      "vscode": {
+          "extensions": [
+              "ms-python.python",
+              "ms-python.vscode-pylance",
+              "ms-python.debugpy",
+              "ms-toolsai.jupyter",
+              "eamodio.gitlens",
+              "github.copilot",
+              "continue.continue",
+              "ms-azuretools.vscode-docker",
+              "yzhang.markdown-all-in-one",
+              "bierner.markdown-mermaid"
+          ],
+          "settings": {
+              "python.defaultInterpreterPath": "${containerWorkspaceFolder}/.venv/bin/python",
+              "python.terminal.activateEnvironment": true,
+              "editor.formatOnSave": true
+          }
+      }
+  },
+  "features": {
+    "ghcr.io/devcontainers/features/node:1": {
+      "version": "lts"
+    }
+  }
+}
